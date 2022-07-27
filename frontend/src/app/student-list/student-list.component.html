@@ -1,0 +1,31 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">Mã sv</th>
+            <th scope="col">Họ đệm</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Ngày sinh</th>
+            <th scope="col">Giới tính</th>
+            <th scope="col">Tỉnh</th>
+            <th scope="col">Actor</th>
+          </tr>
+        </thead>
+        <tbody class = "text-center">
+          <tr *ngFor="let sv of students">
+            <td>{{ sv.masv }}</td>
+            <td>{{ sv.hoDem }}</td>
+            <td>{{ sv.ten }}</td>
+            <td>{{ sv.ngaySinh }}</td>
+            <td>{{ sv.gioiTinh }}</td>
+            <td>{{ sv.tinh }}</td>
+            <li class="list-inline-item"></li>
+            <button type="button" class="btn btn-primary " routerLink="/students/update/{{sv.masv}}">Edit</button>
+            <button type="button" class="btn btn-outline-dark " (click)="onDeleteS(sv.masv)" >Delete</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <router-outlet></router-outlet>  
+  </div>
