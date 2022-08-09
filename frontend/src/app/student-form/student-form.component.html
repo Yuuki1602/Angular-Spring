@@ -7,7 +7,7 @@
             class="form-control" 
             id="hodem" 
             name="hodem" 
-            placeholder="Nhap ho dem cua ban"
+            placeholder="Nhập họ đệm của bạn"
             required #hodem="ngModel">
         </div>
         <div class="form-group">
@@ -16,7 +16,7 @@
               class="form-control" 
               id="ten" 
               name="ten" 
-              placeholder="Nhap ten cua ban"
+              placeholder="Nhập tên của bạn"
               required #name="ngModel">
           </div>
         <div [hidden]="!name.pristine" class="alert alert-danger">Tên là bắt buộc</div>
@@ -26,7 +26,6 @@
             class="form-control" 
             id="ngaysinh"
             name="ngaysinh" 
-            placeholder="Enter your date"
             required #date="ngModel">
         </div>
         <div class="form-group">
@@ -35,7 +34,7 @@
             class="form-control" 
             id="gioitinh" 
             name="gioitinh" 
-            placeholder="Nhap gioi tinh  cua ban"
+            placeholder="Nhập giới tính của bạn"
             required #name="ngModel">
         </div>
         <div class="form-group">
@@ -44,7 +43,7 @@
             class="form-control" 
             id="tinhh" 
             name="tinh" 
-            placeholder="Nhap tinh  cua ban"
+            placeholder="Nhập tỉnh"
             required #name="ngModel">
         </div>
         <button type="submit" [disabled]="!studentForm.form.valid" 

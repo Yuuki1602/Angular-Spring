@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Student } from './student';
 
 
@@ -17,7 +17,7 @@ export class StudentService {
     return this.http.get<Student[]>(`${this.studentUrl}`);
   }
   //get 1
-  public getStudent(id :number) : Observable<Student> {
+  public getStudent(id: number): Observable<Student> {
     return this.http.get<Student>(`${this.studentUrl}/${id}`);
   }
   //add
@@ -25,12 +25,20 @@ export class StudentService {
     return this.http.post<Student>(`${this.studentUrl}/add`, student);
   }
   //edit
-  public update(id : number,student: Student): Observable<Student> {
+  public update(id: number, student: Student): Observable<Student> {
     return this.http.put<Student>(`${this.studentUrl}/update/${id}`, student);
   }
 
   //delete
   public deleteStudent(id: number): Observable<void> {
     return this.http.delete<void>(`${this.studentUrl}/delete/${id}`);
+  }
+
+  //search 
+  public searchStudent(term: string): Observable<Student[]> {
+    if(!term.trim()){
+      return of([]);
+    }
+    return this.http.get<Student[]>(`${this.studentUrl}/?search/name=${term}`);
   }
 }

@@ -16,20 +16,19 @@ public class Sinhvien {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long masv;
     @Column(name = "hodem")
-    private String HoDem;
+    private String hoDem;
     @Column(name = "ten")
-    private String Ten;
+    private String ten;
     @Column(name = "ngaysinh")
-    private Date NgaySinh;
+    private Date ngaySinh;
     @Column(name = "gioitinh")
-    private String GioiTinh;
+    private String gioiTinh;
     @Column(name = "tinh")
-    private  String Tinh;
+    private  String tinh;
 
     @ToString.Include
     String sv(){
         return "Sinh vien";
     }
-
 
 }
