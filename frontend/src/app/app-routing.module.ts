@@ -6,10 +6,7 @@ import { StudentEditComponent } from './student-edit/student-edit.component';
 const routes: Routes = [
   { path: 'students', component: StudentListComponent },
   { path: 'addstudents', component: StudentFormComponent },
-  { path: 'students/update/:masv', component:StudentEditComponent},
-
-
-  
+  { path: 'students/update/:masv', component: StudentEditComponent },
 ];
 
 @NgModule({

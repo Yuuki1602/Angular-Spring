@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Student } from './student';
+import { Student } from '../Model/student';
 
 
 @Injectable()
@@ -13,11 +13,10 @@ export class StudentService {
     this.studentUrl = 'http://localhost:8080/students';
   }
   // list
-  public findAll(): Observable<Student[]> {
+  getAll(): Observable<Student[]> {
     return this.http.get<Student[]>(`${this.studentUrl}`);
   }
-  //get 1
-  public getStudent(id: number): Observable<Student> {
+  public getStudent(id: string): Observable<Student> {
     return this.http.get<Student>(`${this.studentUrl}/${id}`);
   }
   //add
@@ -25,20 +24,21 @@ export class StudentService {
     return this.http.post<Student>(`${this.studentUrl}/add`, student);
   }
   //edit
-  public update(id: number, student: Student): Observable<Student> {
-    return this.http.put<Student>(`${this.studentUrl}/update/${id}`, student);
+  public update(student: Student): Observable<Student> {
+    return this.http.put<Student>(`${this.studentUrl}/update`+"/" + student.masv, student);
   }
 
   //delete
-  public deleteStudent(id: number): Observable<void> {
+  public deleteStudent(id: string): Observable<void> {
     return this.http.delete<void>(`${this.studentUrl}/delete/${id}`);
   }
 
   //search 
   public searchStudent(term: string): Observable<Student[]> {
-    if(!term.trim()){
+    if (!term.trim()) {
       return of([]);
     }
     return this.http.get<Student[]>(`${this.studentUrl}/?search/name=${term}`);
   }
+
 }
